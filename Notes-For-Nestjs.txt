@@ -1,0 +1,48 @@
+Provider:
+A provider can be a service, a repository, a factory, or a helper.
+
+Controller:
+The controller is responsible for listening to requests that come into your application. It then formulates the responses that go out.
+
+Module:
+The @Module() decorator provides metadata that Nest uses to organise the application structure.
+
+Interceptor:
+An interceptor is a specialised set of middleware that lets you peek into the request that goes into the application. You can peek into the request either before it reaches the controller or after the controller is done with the request before it gets to the client-side as a response. You can manipulate the data on their way out in the interceptor.
+
+Guard:
+Guard is also a special kind of middleware that is used mainly for authentication and authorisation. It only returns a boolean value of true or false.
+
+Guards have a single responsibility: they determine whether a given request will be handled by the route handler or not, depending on certain conditions (like permissions, roles, ACLs, etc.) present at run-time.
+
+A Guard should also implement the CanActivate interface.
+
+Pipe:
+Pipes are also a special kind of middleware that sits between the client and the controller. They are mostly used for validation and transforming data before they get to the controller.
+
+DTO:
+Data transfer object is an object that defines how data will be sent over the network. They are also used for validation and type checking.
+
+Interfaces:
+TypeScript interfaces are only used for type-checking and they do not compile down into JavaScript code.
+
+Entity:
+Entities are the building blocks of your database schema. Simply put, an entity object represents a database table, and we define entities to interact with the database.
+
+@InjectRepository():
+Why Use a Repository?
+=> Separation of Concerns: Repositories help organize code by keeping the database logic separate from the business logic (like service methods). This makes the codebase cleaner and easier to maintain.
+
+=> Reusability: Instead of repeating database code in multiple places, we have a single repository to handle all interactions with the database for a particular entity. This allows other parts of the application (like services) to reuse this code.
+
+=> Type Safety and Structure: In TypeORM and other ORMs, repositories are often type-safe. This means they know what kind of data they manage (e.g., User), which helps catch errors during development and makes the code easier to understand and use correctly.
+
+What is Repository?
+Think of a repository as a specialized tool for working with a specific type of data in the database, like user information, products, or orders. Each repository manages the logic for accessing and modifying a specific entity (like User, Product, etc.) without worrying about the actual database structure.
+
+When to Use a Repository?
+Repositories are typically used in the service layer of an application, where we define the business logic that needs to interact with data. By putting the repository in the service, the controller (which handles the incoming requests) doesn’t need to worry about database logic—it only needs to call service methods that use repositories.
+
+
+Understand this Concepts:
+Many to One : order.entity.ts - done
